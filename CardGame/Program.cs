@@ -12,7 +12,6 @@
             Console.WriteLine(c1);
             Console.WriteLine(c3);
             Console.WriteLine(c4);
-            
         }
     }
 }
