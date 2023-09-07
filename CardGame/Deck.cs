@@ -9,6 +9,7 @@ namespace CardGame
     public class Deck
     {
         private Card[] cards;
+        private int top;
 
         public Deck()
         {
@@ -25,16 +26,32 @@ namespace CardGame
         }
 
         public Card Peek() 
-        { 
-            return null;
-        }
+        {return null;}
 
-        public void Shuffle() 
+        public void Shuffle()
         {
-
+            Random rnd = new Random();
+            for(int i=0; i< cards.Length; i++)
+            {
+                int j = rnd.Next(52);
+                swap(i, j);
+            }
         }
-        public Card Deal() { return null; }
+        
+        public Card Deal()
+        {
+            Card c = cards[top];
+            top++;
+            return c; 
+        }
 
-        public void Reset() { }
+        public void Reset() { top = 0; }
+
+        private void swap(int i, int j)
+        {
+            Card c = cards[j];
+            cards[j] = cards[i];
+            cards[i] = c;
+        }
     }
 }
